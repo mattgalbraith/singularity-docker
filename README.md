@@ -11,16 +11,16 @@ Architecture can be checked from within container with `arch` (should return x86
 ```bash
 # capture current working directory (should be the top-level singularity-docker directory containing Dockerfile)
 WORKING_DIR=`pwd`
-docker build -t singularity:1.1.5 . # tag should match software version
+docker build -t singularity:1.3.2 . # tag should match software version
 ```
 * Can do this on [Google shell](https://shell.cloud.google.com)
 
 ### 2. Test this tool from the command line:
 Check that we can call the tool now encapsulated within the container
 ```bash
-docker run -it --rm singularity:1.1.5 arch
-docker run -it --rm singularity:1.1.5 apptainer -h # can run as either apptainer or singularity
-docker run -it --rm singularity:1.1.5 singularity -h # can run as either apptainer or singularity
+docker run -it --rm singularity:1.3.2 arch
+docker run -it --rm singularity:1.3.2 apptainer -h # can run as either apptainer or singularity
+docker run -it --rm singularity:1.3.2 singularity -h # can run as either apptainer or singularity
 ```
 
 
