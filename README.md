@@ -9,18 +9,16 @@ NB: if running this on Mac with Apple silicon (M1/M2), by default Docker will pu
 (and any subsequent conversion of Docker images will use same architecture). Solution is to specify `--platform linux/amd64`.
 Architecture can be checked from within container with `arch` (should return x86_64).
 ```bash
-# capture current working directory (should be the top-level singularity-docker directory containing Dockerfile)
-WORKING_DIR=`pwd`
-docker build -t singularity:1.3.2 . # tag should match software version
+docker build --build-arg TARGETPLATFORM=linux/amd64 -t singularity:1.3.4 . # tag should match software version
 ```
 * Can do this on [Google shell](https://shell.cloud.google.com)
 
 ### 2. Test this tool from the command line:
 Check that we can call the tool now encapsulated within the container
 ```bash
-docker run -it --rm singularity:1.3.2 arch
-docker run -it --rm singularity:1.3.2 apptainer -h # can run as either apptainer or singularity
-docker run -it --rm singularity:1.3.2 singularity -h # can run as either apptainer or singularity
+docker run -it --rm singularity:1.3.4 arch
+docker run -it --rm singularity:1.3.4 apptainer -h # can run as either apptainer or singularity
+docker run -it --rm singularity:1.3.4 singularity -h # can run as either apptainer or singularity
 ```
 
 
